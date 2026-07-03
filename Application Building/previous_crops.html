@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}OptiCrop - Previous Crops{% endblock %}
+
+{% block content %}
+<div class="page-container">
+    <div class="page-header">
+        <h2>Previous Crop Predictions</h2>
+        <p>A history of your past agricultural predictions and recommendations.</p>
+    </div>
+    
+    <div class="card">
+        {% if history %}
+        <table style="width: 100%; border-collapse: collapse; text-align: left;">
+            <thead>
+                <tr style="border-bottom: 2px solid var(--border-color);">
+                    <th style="padding: 12px 8px; color: var(--text-muted);">Date</th>
+                    <th style="padding: 12px 8px; color: var(--text-muted);">Conditions</th>
+                    <th style="padding: 12px 8px; color: var(--text-muted);">Recommended Crop</th>
+                    <th style="padding: 12px 8px; color: var(--text-muted); text-align: right;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in history %}
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                    <td style="padding: 16px 8px; font-size: 14px;">{{ item.date }}</td>
+                    <td style="padding: 16px 8px; font-size: 13px; color: var(--text-muted);">{{ item.conditions }}</td>
+                    <td style="padding: 16px 8px; font-weight: 600; color: var(--primary-color);">{{ item.crop }}</td>
+                    <td style="padding: 16px 8px; text-align: right;">
+                        <a href="{{ url_for('delete_prediction', index=loop.index0) }}" class="btn-delete">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p style="color: var(--text-muted); text-align: center; padding: 40px 0;">No previous predictions found. Head over to FindYourCrop to make your first prediction!</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}OptiCrop SaaS{% endblock %}</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Modern Navbar -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="brand-icon">🌱</span> OptiCrop
+        </div>
+        <div class="nav-links">
+            <a href="{{ url_for('home') }}" class="{% if request.endpoint == 'home' %}active{% endif %}">Home</a>
+            <a href="{{ url_for('about') }}" class="{% if request.endpoint == 'about' %}active{% endif %}">About</a>
+            <a href="{{ url_for('findyourcrop') }}" class="{% if request.endpoint == 'findyourcrop' or request.endpoint == 'predict' %}active{% endif %}">FindYourCrop</a>
+            <a href="{{ url_for('previous_crops') }}" class="{% if request.endpoint == 'previous_crops' %}active{% endif %}">Previous Crops</a>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 OptiCrop Agricultural Optimization. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

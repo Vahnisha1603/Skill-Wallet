@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}OptiCrop - About{% endblock %}
+
+{% block content %}
+<div class="page-container">
+    <div class="page-header">
+        <h2>About OptiCrop</h2>
+        <p>Smart Agricultural Optimization Using ML</p>
+    </div>
+    
+    <div class="card" style="display: flex; gap: 40px; align-items: center;">
+        <div style="flex: 1;">
+            <p style="margin-bottom: 16px; font-size: 16px; line-height: 1.8;">
+                The project <strong>"Opti Crop: Smart Agricultural Production Optimization Engine"</strong> aims to develop an advanced software system that utilizes data-driven insights to optimize agricultural production for different crops.
+            </p>
+            <p style="margin-bottom: 16px; font-size: 16px; line-height: 1.8;">
+                By integrating key environmental factors such as Nitrogen (N), Phosphorous (P), Potassium (K) levels, soil temperature, humidity, pH, rainfall, and crop types, Opti Crop seeks to provide intelligent recommendations to farmers for maximizing yields and resource efficiency.
+            </p>
+            <p style="font-size: 16px; line-height: 1.8;">
+                The Opti Crop project revolutionizes agricultural practices by providing farmers with a smart production optimization engine, enabling them to achieve optimal yields and contribute to sustainable agricultural practices.
+            </p>
+        </div>
+        <div style="flex: 1;">
+            <img src="{{ url_for('static', filename='images/about-bg.png') }}" alt="Farmer in field" style="width: 100%; border-radius: var(--radius); box-shadow: var(--shadow-md);">
+        </div>
+    </div>
+</div>
+{% endblock %}

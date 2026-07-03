@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}OptiCrop - Home{% endblock %}
+
+{% block content %}
+<div class="hero-section" style="background-image: url('{{ url_for('static', filename='images/home-bg.png') }}');">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>OptiCrop Agricultural Optimization</h1>
+        <p>The main purpose of OptiCrop is to develop an advanced software system that utilizes data-driven insights to optimize agricultural production for different crops across varying environmental conditions.</p>
+        <a href="{{ url_for('findyourcrop') }}" class="btn-primary">Start Prediction</a>
+    </div>
+</div>
+{% endblock %}
